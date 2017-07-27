@@ -1,0 +1,8 @@
+TODO:
+
+- AppIcon
+- Add/remove spinner on request/response
+x Send body in request
+x Request headers. Parse text, split by newlines
+x Finish Post, Put, Delete
+x Build parameters with URLComponents object
