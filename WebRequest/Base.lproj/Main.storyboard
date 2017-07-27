@@ -745,7 +745,6 @@
                                     </subviews>
                                 </view>
                                 <color key="fillColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-JA-uG5">
                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="470"/>
@@ -865,10 +864,10 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <box fixedFrame="YES" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="6bI-uM-U84">
-                                                <rect key="frame" x="17" y="315" width="465" height="94"/>
+                                                <rect key="frame" x="14" y="315" width="468" height="94"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <view key="contentView" ambiguous="YES" id="swa-Bh-9ej">
-                                                    <rect key="frame" x="2" y="2" width="461" height="90"/>
+                                                    <rect key="frame" x="2" y="2" width="464" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8G-6H-UOJ">
@@ -930,18 +929,18 @@
                                                 <font key="titleFont" metaFont="system" size="14"/>
                                             </box>
                                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl2-Ux-7UF">
-                                                <rect key="frame" x="20" y="20" width="460" height="256"/>
+                                                <rect key="frame" x="20" y="20" width="459" height="256"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <clipView key="contentView" ambiguous="YES" id="jzc-UX-6rY">
-                                                    <rect key="frame" x="1" y="1" width="458" height="254"/>
+                                                    <rect key="frame" x="1" y="1" width="457" height="254"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="tYc-R9-zuK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="458" height="254"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="457" height="254"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="minSize" width="458" height="254"/>
-                                                            <size key="maxSize" width="958" height="10000000"/>
+                                                            <size key="minSize" width="457" height="254"/>
+                                                            <size key="maxSize" width="996" height="10000000"/>
                                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         </textView>
                                                     </subviews>
@@ -952,7 +951,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="b7o-G8-bfx">
-                                                    <rect key="frame" x="443" y="1" width="16" height="254"/>
+                                                    <rect key="frame" x="442" y="1" width="16" height="254"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -985,6 +984,17 @@
                                                 </view>
                                                 <color key="fillColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </box>
+                                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5s-ie-jjZ">
+                                                <rect key="frame" x="360" y="278" width="120" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="check" title="show headers" bezelStyle="regularSquare" imagePosition="left" inset="2" id="T54-Jz-0I4">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system" size="14"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="onShowHeaders:" target="XfG-lQ-9wD" id="fV3-yb-8JF"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </customView>
                                 </subviews>

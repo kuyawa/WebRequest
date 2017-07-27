@@ -14,6 +14,9 @@ enum HttpMethod : Int {
 
 class ViewController: NSViewController {
 
+    var raw  : String = ""
+    var body : String = ""
+    
     let fontMono = NSFont(name: "Monaco", size: 14.0)
     
     @IBOutlet weak var textURL        : NSTextField!
@@ -47,7 +50,16 @@ class ViewController: NSViewController {
             textHeaders.string = textHeaders.string?.replacingOccurrences(of: formEncoded, with: "")
         }
     }
+
+    @IBAction func onShowHeaders(_ sender: NSButton) {
+        if sender.state == 1 {
+            textContent.string = self.raw
+        } else {
+            textContent.string = self.body
+        }
+    }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -104,6 +116,9 @@ class ViewController: NSViewController {
     }
     
     func handle(_ response: WebResponse){
+        self.raw  = response.raw
+        self.body = response.content
+        
         if response.isError {
             DispatchQueue.main.async {
                 self.textResult.stringValue     = "Error:"
@@ -111,7 +126,6 @@ class ViewController: NSViewController {
                 self.textMimeType.stringValue   = "Error"
                 self.textMessage.stringValue    = response.error?.localizedDescription ?? "Unknown error"
                 self.textContent.string         = response.error?.localizedDescription ?? "Unknown error"
-                //self.textContent.font           = self.fontMono
             }
             return
         }
@@ -121,8 +135,8 @@ class ViewController: NSViewController {
             self.textStatusCode.integerValue = response.statusCode
             self.textMimeType.stringValue    = response.mimeType
             self.textMessage.stringValue     = "Ok"
+            // If raw checked, show raw
             self.textContent.string          = response.content
-            //self.textContent.font            = self.fontMono
         }
     }
 

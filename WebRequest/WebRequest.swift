@@ -20,13 +20,15 @@ typealias Parameters = [String:Any]
 typealias Callback   = (_ response: WebResponse) -> Void
 
 class WebResponse {
-    var isError      : Bool    = false
-    var error        : Error?  = nil
-    var statusCode   : Int     = 0
-    var mimeType     : String  = ""
-    var content      : String  = ""
-    var file         : URL?    = nil
-    var data         : Data?   = nil
+    var isError      : Bool     = false
+    var error        : Error?   = nil
+    var statusCode   : Int      = 0
+    var mimeType     : String   = ""
+    var headers      : [String] = [""]
+    var content      : String   = ""
+    var file         : URL?     = nil
+    var data         : Data?    = nil
+    var raw          : String   = ""
     var json         : NSDictionary? = nil
     var response     : URLResponse?  = nil
     var httpResponse : HTTPURLResponse?  = nil
@@ -226,10 +228,13 @@ class WebRequest {
         result.mimeType     = (response?.mimeType)!
         result.httpResponse = response as? HTTPURLResponse
         result.statusCode   = result.httpResponse?.statusCode ?? 0
-        
+        if let headers = result.httpResponse?.allHeaderFields {
+            result.headers  = headers.map { "\($0.key): \($0.value)" }
+        }
         if let data = data {
-            if let html = String(data: data, encoding: .utf8) {
-                result.content = html
+            if let text = String(data: data, encoding: .utf8) {
+                result.content = text
+                result.raw = result.headers.joined(separator: "\n") + "\n\n" + text
             }
             if let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? NSDictionary {
                 result.json = json
