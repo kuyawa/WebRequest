@@ -16,6 +16,7 @@ class ViewController: NSViewController {
 
     var raw  : String = ""
     var body : String = ""
+    var checkHeaders  = false
     
     let fontMono = NSFont(name: "Monaco", size: 14.0)
     
@@ -32,7 +33,7 @@ class ViewController: NSViewController {
     
     
     @IBAction func onRequest(_ sender: AnyObject) {
-        resetUI()
+        clearResponse()
         statusLoading()
         webRequest()
     }
@@ -54,8 +55,10 @@ class ViewController: NSViewController {
     @IBAction func onShowHeaders(_ sender: NSButton) {
         if sender.state == 1 {
             textContent.string = self.raw
+            checkHeaders = true
         } else {
             textContent.string = self.body
+            checkHeaders = false
         }
     }
     
@@ -83,6 +86,14 @@ class ViewController: NSViewController {
         textContent.font           = fontMono
     }
 
+    func clearResponse() {
+        textResult.stringValue     = "Content:"
+        textStatusCode.stringValue = ""
+        textMimeType.stringValue   = ""
+        textMessage.stringValue    = ""
+        textContent.string         = ""
+    }
+    
     func statusLoading() {
         // TODO: add spinnner
         textStatusCode.stringValue = "Loading..."
@@ -136,7 +147,11 @@ class ViewController: NSViewController {
             self.textMimeType.stringValue    = response.mimeType
             self.textMessage.stringValue     = "Ok"
             // If raw checked, show raw
-            self.textContent.string          = response.content
+            if self.checkHeaders {
+                self.textContent.string = response.raw
+            } else {
+                self.textContent.string = response.content
+            }
         }
     }
 
