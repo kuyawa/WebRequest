@@ -146,7 +146,7 @@ class ViewController: NSViewController {
             self.textStatusCode.integerValue = response.statusCode
             self.textMimeType.stringValue    = response.mimeType
             self.textMessage.stringValue     = "Ok"
-            // If raw checked, show raw
+            // If headers checked, show them
             if self.checkHeaders {
                 self.textContent.string = response.raw
             } else {

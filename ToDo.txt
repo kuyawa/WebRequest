@@ -1,7 +1,7 @@
 TODO:
 
-- AppIcon
 - Add/remove spinner on request/response
+x AppIcon
 x Send body in request
 x Request headers. Parse text, split by newlines
 x Finish Post, Put, Delete
